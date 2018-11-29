@@ -59,6 +59,7 @@ export class AppProvider {
         is_business:localStorage.getItem("is_business"),
         is_travel:localStorage.getItem("is_travel"),
         is_holidays:localStorage.getItem("is_holidays"),
+        user_id:localStorage.getItem("user_id")
       }
     }else{
        return {username:null,password:null,user_id:"-1"}
