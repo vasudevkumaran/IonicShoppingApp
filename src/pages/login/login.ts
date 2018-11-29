@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App, AlertController } from 'ionic-angular';
 import { AppProvider } from '../../providers/app/app';
 import { Subscription } from 'rxjs/Subscription';
+import { RegisterPage } from '../register/register';
 
 /**
  * Generated class for the LoginPage page.
@@ -27,7 +28,9 @@ export class LoginPage {
    console.log('ionViewDidLoad LoginPage');
   // console.log(this.navParams.get('username'))
   }
-  
+  public showReg(){
+    this.navCtrl.push(RegisterPage,{type:'Register'})
+  }
 
   public onSubmitPressed(){
     console.log(this.loginObj);
