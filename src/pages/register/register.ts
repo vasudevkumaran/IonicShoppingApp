@@ -15,7 +15,7 @@ import { AppProvider } from '../../providers/app/app';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
+  private pageTitle:string = "Register"
   public regObj:any = {username:"",
                         password:"",
                         firstname:"",
@@ -30,6 +30,27 @@ export class RegisterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+    if (this.navParams.get('type') == "Edit"){
+        this.pageTitle = "Profile"
+        var reg:any = this.srv.getLogin();
+        if (reg.is_business == "1"){
+          reg.is_business = true;
+        }else{
+          reg.is_business = false;
+        }
+        if (reg.is_holidays){
+          reg.is_holidays = true;
+        }else{
+          reg.is_holidays = false;
+        }
+        if (reg.is_travel){
+          reg.is_travel = true;
+        }else{
+          reg.is_travel = false;
+        }
+
+        this.regObj = reg;
+    }
   }
   public backBtnPressed(){
     this.navCtrl.pop();
@@ -54,8 +75,13 @@ export class RegisterPage {
       reg.is_travel = "2";
     }
     console.log(reg);
-    this.srv.sendToServer('http://vasudevkumaran.com/ang/registration',reg).subscribe(data => {
+    var url = "http://vasudevkumaran.com/ang/registration";
+    if (this.pageTitle == 'Profile'){
+      url = "http://vasudevkumaran.com/ang/registrationupdate"
+    }
+    this.srv.sendToServer(url,reg).subscribe(data => {
         console.log(data)
+        this.navCtrl.pop()
     })
   }
 

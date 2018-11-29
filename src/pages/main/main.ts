@@ -110,6 +110,8 @@ export class MainPage {
           role:"destructive",
           handler: ()=>{
             console.log("Add item Pressed")
+            this.srv.setLogout();
+            this.navCtrl.pop()
           }
         },
         {
