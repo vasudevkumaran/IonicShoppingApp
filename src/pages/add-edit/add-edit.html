@@ -1,0 +1,33 @@
+<!--
+  Generated template for the AddEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Item Name</ion-label>
+      <ion-input type="text" [(ngModel)]="item.itemname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Item Price</ion-label>
+      <ion-input type="text" [(ngModel)]="item.itemprice"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Item Qty</ion-label>
+      <ion-input type="text" [(ngModel)]="item.itemqty"></ion-input>
+    </ion-item>
+  </ion-list>
+  <p *ngIf="message != ''">{{message}}</p>
+  <button ion-button (click)="onSavePressed()">Save</button>
+</ion-content>

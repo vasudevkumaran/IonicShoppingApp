@@ -1,0 +1,71 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>Enter a Desired Username</ion-label>
+          <ion-input type="text" [(ngModel)]="regObj.username"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label floating>Enter a Password</ion-label>
+          <ion-input type="password" [(ngModel)]="regObj.password"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>First name</ion-label>
+            <ion-input type="firstname" [(ngModel)]="regObj.firstname"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Last name</ion-label>
+              <ion-input type="lastname" [(ngModel)]="regObj.lastname"></ion-input>
+            </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="regObj.gender">
+          <ion-list-header>
+            Gender
+          </ion-list-header>
+        
+          <ion-item>
+            <ion-label>Male</ion-label>
+            <ion-radio value="1"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Female</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-list-header>
+                Interest Areas
+              </ion-list-header>
+            <ion-item>
+                <ion-label>Business</ion-label>
+                <ion-checkbox color="dark"   [(ngModel)]="regObj.is_business"></ion-checkbox>
+              </ion-item>
+              
+              <ion-item>
+                <ion-label>Travel</ion-label>
+                <ion-checkbox color="dark"  [(ngModel)]="regObj.is_travel"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Holidays</ion-label>
+                  <ion-checkbox color="dark"  [(ngModel)]="regObj.is_holidays"></ion-checkbox>
+                </ion-item>
+        </ion-list>
+      <button ion-button (click)="onSubmitPressed()">Submit</button>
+</ion-content>
